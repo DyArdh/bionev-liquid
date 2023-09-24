@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +16,7 @@
         <!-- Vite Plugin -->
         @vite(['resources/js/app.js', 'resources/css/app.css'])
     </head>
-    <body>
+    <body class="no-scrollbar">
         @yield('modal')
         @include('layouts.topNavbar')
         <main class="w-full mt-[69px] lg:mt-[30px]">
@@ -26,6 +26,21 @@
         </main>
         @include('layouts/footer')
         <script type="text/javascript" src="{{ asset('js/scripts.js') }}"></script>
+        <script type="text/javascript">
+            const profileButton = document.querySelector('.profile-button');
+            const dropdownMenu = document.querySelector('.dropdown-menu');
+
+            profileButton.addEventListener('click', () => {
+                dropdownMenu.classList.toggle('hidden');
+            });
+
+            // Close the dropdown when clicking outside of it
+            document.addEventListener('click', (e) => {
+                if (!profileButton.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                dropdownMenu.classList.add('hidden');
+                }
+            });
+        </script>
         @yield('js-script')
     </body>
 </html>

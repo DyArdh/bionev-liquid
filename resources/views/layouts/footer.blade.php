@@ -9,7 +9,7 @@
         <p>0857-0898-7136</p>
     </div>
     <div class="mt-6 md:mt-0">
-        <h4 class="font-public font-bold text-xl uppercase text-center mb-2">
+        <h4 class="font-public font-bold text-lg uppercase text-center mb-2">
             Find Us On Social Media
         </h4>
         <div class="flex gap-4 justify-center md:justify-start items-center">

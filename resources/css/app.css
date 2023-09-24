@@ -35,3 +35,61 @@
 }
 
 /* End Float Input */
+
+/* Remove Button Input Number */
+.total::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* End Remove Button Input Number */
+
+/* Animation Modal */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animate-fade-in {
+    animation: fade-in 0.3s ease-out;
+}
+
+/* End Animation Modal */
+
+.dataTables_wrapper .dataTables_filter {
+    margin-bottom: 10px;
+}
+
+table.dataTable > thead > tr > th:nth-child(1) {
+    border-radius: 10px 0 0 0;
+}
+
+#usersTable > thead > tr > th:nth-child(7) {
+    border-radius: 0 10px 0 0;
+}
+
+#ordersTable > thead > tr > th:nth-child(11) {
+    border-radius: 0 10px 0 0;
+}
+
+.dataTables_wrapper .dataTables_paginate {
+    float: right;
+    text-align: right;
+    padding-top: 10px;
+}
+
+table.dataTable > thead > tr > th,
+table.dataTable > thead > tr > td {
+    padding: 10px;
+    /* border-top: 1px solid rgba(0, 0, 0, 0.3); */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    background-color: rgb(220, 220, 220);
+    color: #505050;
+}

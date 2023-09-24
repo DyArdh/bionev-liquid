@@ -13,15 +13,14 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('avatar')->nullable();
             $table->string('name', 40);
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->string('address');
+            $table->string('bod', 40);
+            $table->enum('gender', ['male', 'female']);
+            $table->text('address');
             $table->string('phone', 13);
-            $table->enum('role', ['admin', 'user'])->default('user');
-            // $table->timestamp('created_at')->useCurrent();
-            // $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
+            $table->string('email', 40)->unique();
+            $table->string('password');
+            $table->enum('role', ['Admin', 'User'])->default('User');
         });
     }
 

@@ -22,9 +22,26 @@
                         <svg class="p-1.5 w-7 text-white" fill="none" viewBox="0 0 192 192"><g stroke="#fff" stroke-width="12"><path d="m59.336 160.279a74.003 74.003 0 0 1 -34.864-83.244 74 74 0 1 1 108.192 83.244" stroke-linecap="round"/><circle cx="96" cy="96" r="32"/></g></svg>
                     </div>
                 </div>
-                <div>
-                    <button class="font-public font-semibold px-9 py-1.5 border-2 rounded-full border-white text-white">Login</button>
-                </div>
+                @if (Auth::check())
+                    <div class="relative group">
+                        <!-- Profile button -->
+                        <button class="flex items-center space-x-2 text-white profile-button">
+                            <svg class="w-7" viewBox="0 0 24 24"><path fill="currentColor" d="M12 4a4 4 0 0 1 4 4a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4m0 2a2 2 0 0 0-2 2a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2m0 7c2.67 0 8 1.33 8 4v3H4v-3c0-2.67 5.33-4 8-4m0 1.9c-2.97 0-6.1 1.46-6.1 2.1v1.1h12.2V17c0-.64-3.13-2.1-6.1-2.1Z"/></svg>
+                        </button>
+                        <!-- Dropdown menu -->
+                        <div class="absolute right-0 mt-5 w-40 bg-white rounded-lg shadow-lg hidden dropdown-menu">
+                            <ul class="py-2 font-quick font-semibold text-sm">
+                            <li><a href="{{ route('profile') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition duration-300">Profil</a></li>
+                            <li><a href="{{ route('pesanan') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition duration-300">Pesanan</a></li>
+                            <li><a href="{{ route('logout') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition duration-300">Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                @else
+                    <a href="/login">
+                        <button class="font-public font-semibold px-9 py-1.5 border-2 rounded-full border-white text-white">Login</button>
+                    </a>
+                @endif
             </div>
         </div>
     </div>
@@ -41,11 +58,28 @@
             <svg class="w-6" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2zm4 2h6m-6 4h6m-6 4h4"/></svg>
             <span class="text-xs font-bold md:text-sm">Tentang Kami</span>
         </li>
-        <a href="/login">
+        <a href="{{ route('pesanan') }}">
             <li class="flex justify-center flex-col items-center gap-1 text-second">
-                <svg class="w-6" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21v-2h7V5h-7V3h7q.825 0 1.413.588T21 5v14q0 .825-.588 1.413T19 21h-7Zm-2-4l-1.375-1.45l2.55-2.55H3v-2h8.175l-2.55-2.55L10 7l5 5l-5 5Z"/></svg>
-                <span class="text-xs font-bold md:text-sm">Masuk</span>
+                <svg class="w-6" viewBox="0 0 24 24"><path fill="currentColor" d="M20 2H10a3 3 0 0 0-3 3v7a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V5a3 3 0 0 0-3-3Zm1 10a1 1 0 0 1-1 1H10a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1Zm-3.5-4a1.49 1.49 0 0 0-1 .39a1.5 1.5 0 1 0 0 2.22a1.5 1.5 0 1 0 1-2.61ZM16 17a1 1 0 0 0-1 1v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-4h1a1 1 0 0 0 0-2H3v-1a1 1 0 0 1 1-1a1 1 0 0 0 0-2a3 3 0 0 0-3 3v7a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-1a1 1 0 0 0-1-1ZM6 18h1a1 1 0 0 0 0-2H6a1 1 0 0 0 0 2Z"/></svg>
+                <span class="text-xs font-bold md:text-sm">Pesanan</span>
             </li>
         </a>
+        @if (Auth::check())
+            <a href="{{ route('profile') }}">
+                <div class="relative group">
+                    <div class="flex flex-col justify-center items-center cursor-pointer text-second group-hover:text-blue-500">
+                        <svg class="w-[26px]" viewBox="0 0 24 24"><path fill="currentColor" d="M12 4a4 4 0 0 1 4 4a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4m0 2a2 2 0 0 0-2 2a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2m0 7c2.67 0 8 1.33 8 4v3H4v-3c0-2.67 5.33-4 8-4m0 1.9c-2.97 0-6.1 1.46-6.1 2.1v1.1h12.2V17c0-.64-3.13-2.1-6.1-2.1Z"/></svg>
+                        <span class="text-xs font-bold md:text-sm">Profil</span>
+                    </div>
+                </div>
+            </a>
+        @else
+            <a href="/login">
+                <li class="flex justify-center flex-col items-center gap-1 text-second">
+                    <svg class="w-6" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21v-2h7V5h-7V3h7q.825 0 1.413.588T21 5v14q0 .825-.588 1.413T19 21h-7Zm-2-4l-1.375-1.45l2.55-2.55H3v-2h8.175l-2.55-2.55L10 7l5 5l-5 5Z"/></svg>
+                    <span class="text-xs font-bold md:text-sm">Masuk</span>
+                </li>
+            </a>
+        @endif
     </ul>
 </div>
