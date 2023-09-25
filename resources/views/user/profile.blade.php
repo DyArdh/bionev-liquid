@@ -15,13 +15,13 @@
         <div class="grid grid-cols-4 mt-0.5 md:grid-cols-8 lg:grid-cols-12">
             <p class="col-span-1 md:col-span-2">Tanggal Lahir</p>
             <div class="col-span-3 md:col-span-5 md:gap-5 lg:gap-7">
-                <p>{{ date('d F Y', strtotime(Auth::user()->bod)) }}<button id="modalBoD" class="ms-5 cursor-pointer text-blue-500">Ubah</button></p>
+                <p>@if (Auth::user()->bod) {{ date('d F Y', strtotime(Auth::user()->bod)) }} @else - @endif<button id="modalBoD" class="ms-5 cursor-pointer text-blue-500">Ubah</button></p>
             </div>
         </div>
         <div class="grid grid-cols-4 mt-0.5 md:grid-cols-8 lg:grid-cols-12">
             <p class="col-span-1 md:col-span-2">Jenis Kelamin</p>
             <div class="col-span-3 md:col-span-5 md:gap-5 lg:gap-7">
-                <p>@if (Auth::user()->gender === 'male') Laki - Laki @else Perempuan @endif<button id="modalGender" class="ms-5 cursor-pointer text-blue-500">Ubah</button></p>
+                <p>@if (Auth::user()->gender === 'male') Laki - Laki @elseif (Auth::user()->gender === 'female') Perempuan @else - @endif<button id="modalGender" class="ms-5 cursor-pointer text-blue-500">Ubah</button></p>
             </div>
         </div>
         <div class="grid grid-cols-4 mt-0.5 md:grid-cols-8 lg:grid-cols-12">

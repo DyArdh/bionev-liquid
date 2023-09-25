@@ -13,6 +13,13 @@
             href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@100;400;700&family=Quicksand:wght@300;400;700&display=swap"
             rel="stylesheet">
 
+        <!-- Swipper Js CDN -->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+        <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
         <!-- Vite Plugin -->
         @vite(['resources/js/app.js', 'resources/css/app.css'])
     </head>

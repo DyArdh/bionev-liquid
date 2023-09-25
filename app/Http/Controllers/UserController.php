@@ -103,4 +103,22 @@ class UserController extends Controller
             ], 500); 
         }
     }
+
+    public function renderRegister() {
+        return view('auth.register');
+    }
+
+    public function register(Request $request) {
+        $validation = $request->validate([
+            'name' => 'string|max:40',
+            'address' => 'string',
+            'phone' => 'string|min:10|max:13',
+            'email' => 'string|max:40',
+            'password' => 'string'
+        ]);
+
+        User::create($validation);
+
+        return redirect()->route('login');
+    }
 }

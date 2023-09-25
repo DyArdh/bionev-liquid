@@ -62,4 +62,31 @@ class OrderController extends Controller
             ], 500); 
         }
     }
+
+    public function getOrderByMonth(Request $request) {
+        try {
+            $from = Date('Y-m', strtotime($request->query('from')));        
+            $to = Date('Y-m', strtotime($request->query('to')));        
+            $data = DB::table('checkouts')
+                        ->selectRaw("count(invoice) as total, date_format(created_at, '%b %Y') as period")
+                        ->whereRaw("date_format(created_at, '%Y-%m') between ? AND ?", [$from, $to])
+                        ->groupBy('period')
+                        ->get();
+
+            return [
+                'totals' => $data->pluck('total')->toArray(),
+                'periods' => $data->pluck('period')->toArray()
+            ];
+        } catch (QueryException $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Database error: ' . $e->getMessage(),
+            ], 500);
+        } catch (Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'An error occurred: ' . $e->getMessage(),
+            ], 500); 
+        } 
+    }
 }

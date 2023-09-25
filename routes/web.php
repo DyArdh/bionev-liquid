@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PesananController;
 use App\Http\Controllers\UserAdminController;
@@ -19,12 +20,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-
+Route::get('/', [DashboardController::class, 'index'])->name('home');
 Route::get('/about', [DashboardController::class, 'about'])->name('aboutUs');
-// Route::get('/', [DashboardController::class, 'index'])->name('home');
+
+Route::get('/admin', [DashboardAdminController::class, 'index'])->name('admin.dashboard');
+Route::get('/admin/orders/getOrdersByMonth', [OrderController::class, 'getOrderByMonth'])->name('admin.getOrderByMonth');
 
 Route::get('/getProvince', [CheckoutController::class, 'getProvince'])->name('getProvince');
 Route::get('/getCity/{id}', [CheckoutController::class, 'getCity'])->name('getCity');
@@ -32,11 +32,6 @@ Route::get('/shipping-cost', [CheckoutController::class, 'getShippingCost'])->na
 Route::get('/checkout/payment', [CheckoutController::class, 'payment'])->name('payment');
 Route::get('riwayat-pesanan', [PesananController::class, 'index'])->name('pesanan');
 Route::get('riwayat-pesanan/detail', [PesananController::class, 'detail'])->name('detail-pesanan');
-
-Route::get('/admin/orders', [OrderController::class, 'index'])->name('admin.orders.index');
-Route::put('/admin/orders/update', [OrderController::class, 'update'])->name('admin.orders.update');
-Route::get('/admin/users', [UserAdminController::class, 'index'])->name('admin.users.index');
-Route::get('/admin/getOrder', [OrderController::class, 'getOrder'])->name('admin.getOrder');
 
 Route::middleware(['auth'])->group(function() {
     Route::get('/profile', [UserController::class, 'profile'])->name('profile');
@@ -48,12 +43,15 @@ Route::middleware(['auth'])->group(function() {
 });
 
 Route::middleware(['auth', 'admin'])->group(function() {
-    Route::get('/admin', function () {
-        return json_encode("id => 1");
-    });
+    Route::get('/admin/orders', [OrderController::class, 'index'])->name('admin.orders.index');
+    Route::put('/admin/orders/update', [OrderController::class, 'update'])->name('admin.orders.update');
+    Route::get('/admin/users', [UserAdminController::class, 'index'])->name('admin.users.index');
+    Route::get('/admin/getOrder', [OrderController::class, 'getOrder'])->name('admin.getOrder');
 });
 
 Route::middleware(['guest'])->group(function () {
     Route::get('/login', [UserController::class, 'login'])->name('login');
     Route::post('/login', [UserController::class, 'authenticate']);
+    Route::get('/register', [UserController::class, 'renderRegister'])->name('register');
+    Route::post('/register', [UserController::class, 'register']);
 });

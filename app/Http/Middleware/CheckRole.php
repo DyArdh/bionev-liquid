@@ -21,7 +21,7 @@ class CheckRole
         }
 
         // Check if the user is an admin
-        if ($request->user()->role === 'admin') {
+        if ($request->user()->role === 'Admin') {
             return $next($request);
         }
 
