@@ -5,6 +5,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PesananController;
 use App\Http\Controllers\UserAdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +22,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
+
+Route::get('/about', [DashboardController::class, 'about'])->name('aboutUs');
+// Route::get('/', [DashboardController::class, 'index'])->name('home');
 
 Route::get('/getProvince', [CheckoutController::class, 'getProvince'])->name('getProvince');
 Route::get('/getCity/{id}', [CheckoutController::class, 'getCity'])->name('getCity');
