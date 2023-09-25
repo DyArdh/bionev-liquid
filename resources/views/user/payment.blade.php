@@ -16,7 +16,7 @@
                 <div class="flex justify-between items-center mt-2">
                     <div>
                         <p class="font-quick text-xs">Nomor Rekening</p>
-                        <p id="noRek" class="font-quick font-semibold text-[16px]">08756 74624 254753</p>
+                        <p id="noRek" class="font-quick font-semibold text-[16px]">658401028142533</p>
                     </div>
                     <button type="button" id="copyBtn" class="flex justify-center items-center gap-2">
                         <p class="font-quick font-semibold text-[16px] text-[#8BB75E]">Salin</p>

@@ -35,7 +35,7 @@
                     </a>
                     <ul class="mt-6">
                         <li class="relative px-6 py-2">
-                            <span class="absolute inset-y-0 left-0 w-1 rounded-tr-lg rounded-br-lg @if (Request::url() === url('/admin/dashboard')) {{ "bg-purple-600" }} @else {{ "bg-transparent" }} @endif" aria-hidden="true"></span>
+                            <span class="absolute inset-y-0 left-0 w-1 rounded-tr-lg rounded-br-lg @if (Request::url() === url('/admin')) {{ "bg-purple-600" }} @else {{ "bg-transparent" }} @endif" aria-hidden="true"></span>
                             <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 hover:text-purple-600" href="/admin">
                                 <svg
                                     class="w-5 h-5"

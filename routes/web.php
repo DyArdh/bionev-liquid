@@ -23,16 +23,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [DashboardController::class, 'index'])->name('home');
 Route::get('/about', [DashboardController::class, 'about'])->name('aboutUs');
 
-Route::get('/admin', [DashboardAdminController::class, 'index'])->name('admin.dashboard');
-Route::get('/admin/orders/getOrdersByMonth', [OrderController::class, 'getOrderByMonth'])->name('admin.getOrderByMonth');
-
-Route::get('/getProvince', [CheckoutController::class, 'getProvince'])->name('getProvince');
-Route::get('/getCity/{id}', [CheckoutController::class, 'getCity'])->name('getCity');
-Route::get('/shipping-cost', [CheckoutController::class, 'getShippingCost'])->name('getShippingCost');
-Route::get('/checkout/payment', [CheckoutController::class, 'payment'])->name('payment');
-Route::get('riwayat-pesanan', [PesananController::class, 'index'])->name('pesanan');
-Route::get('riwayat-pesanan/detail', [PesananController::class, 'detail'])->name('detail-pesanan');
-
 Route::middleware(['auth'])->group(function() {
     Route::get('/profile', [UserController::class, 'profile'])->name('profile');
     Route::put('/profile/update', [UserController::class, 'updateProfile'])->name('updateProfile');
@@ -47,6 +37,14 @@ Route::middleware(['auth', 'admin'])->group(function() {
     Route::put('/admin/orders/update', [OrderController::class, 'update'])->name('admin.orders.update');
     Route::get('/admin/users', [UserAdminController::class, 'index'])->name('admin.users.index');
     Route::get('/admin/getOrder', [OrderController::class, 'getOrder'])->name('admin.getOrder');
+    Route::get('/admin', [DashboardAdminController::class, 'index'])->name('admin.dashboard');
+
+    Route::get('/getProvince', [CheckoutController::class, 'getProvince'])->name('getProvince');
+    Route::get('/getCity/{id}', [CheckoutController::class, 'getCity'])->name('getCity');
+    Route::get('/shipping-cost', [CheckoutController::class, 'getShippingCost'])->name('getShippingCost');
+    Route::get('/checkout/payment', [CheckoutController::class, 'payment'])->name('payment');
+    Route::get('riwayat-pesanan', [PesananController::class, 'index'])->name('pesanan');
+    Route::get('riwayat-pesanan/detail', [PesananController::class, 'detail'])->name('detail-pesanan');
 });
 
 Route::middleware(['guest'])->group(function () {

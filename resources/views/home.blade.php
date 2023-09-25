@@ -5,7 +5,9 @@
     <section class="bg-second px-5 md:px-12 lg:px-24 lg:h-[800px]">
         <div class="flex flex-col">
             <img src="{{ asset('assets/hero.png') }}" alt="hero" class="mt-[75px] scale-110 mx-auto lg:mt-14 lg:scale-110 lg:w-[800px]">
-            <button class="px-6 py-3 w-44 mt-10 mb-48 bg-button rounded-full font-public font-bold text-white uppercase mx-auto md:px-8 md:py-4 md:mt-8 md:mb:40 md:text-xl md:w-48 lg:px-10 lg:w-52 lg:mt-4 lg:mb-0">Get Now</button>
+            <a href="{{ route('checkout') }}" class="mx-auto">
+                <button class="px-6 py-3 w-44 mt-10 mb-48 bg-button rounded-full font-public font-bold text-white uppercase mx-auto md:px-8 md:py-4 md:mt-8 md:mb:40 md:text-xl md:w-48 lg:px-10 lg:w-52 lg:mt-4 lg:mb-0">Get Now</button>
+            </a>
         </div>
     </section>
     <section class="bg-white px-5 md:px-12 lg:px-24">
@@ -17,7 +19,9 @@
                     <p class="font-quick font-medium mt-3 text-sm lg:mr-28">BIO-NEV merupakan liquid vape pertama di Indonesia yang menggunakan bahan baku ektrak teh hijau alami.
                     Liquid BIO-NEV dibuat menggunakan alat dan bahan yang foodgrade serta produksi di dalam laboratorium. BIO-NEV dikemas dalam 2 packaging yakni dalam bentuk botol yang dicover dengan box packaging guna mencegah kerusakan produk.
                     </p>
-                    <button class="px-6 py-3 w-full my-10 bg-button rounded-lg font-public font-bold text-white md:w-44 md:rounded-full md:mb-0 md:text-lg">Beli</button>
+                    <a href="{{ route('checkout') }}">
+                        <button class="px-6 py-3 w-full my-10 bg-button rounded-lg font-public font-bold text-white md:w-44 md:rounded-full md:mb-0 md:text-lg">Beli</button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -91,21 +95,59 @@
             
 
     </section>
-        <div class="mt-[1400px] bg-white">
-            test bre
-    </div>
+
+    <section class="container mx-auto mt-10">
+        <div class="flex flex-col">
+            <h1 class="font-public font-bold text-textBlack text-xl lg:text-4xl text-center uppercase">Instagram</h1>
+            <!-- Swipper Md -->
+            <div class="swiper hidden md:block md:mt-8 lg:mt-12 md:px-10 lg:px-32">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="{{ asset('assets/ig1.png') }}" alt="ig">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ asset('assets/ig2.png') }}" alt="ig">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ asset('assets/ig3.png') }}" alt="ig">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ asset('assets/ig4.png') }}" alt="ig">
+                    </div>
+                </div>
+            </div>
+            <!-- Swipper Mobile -->
+            <div class="swiper swiperMobile mt-8 md:hidden">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="{{ asset('assets/ig1.png') }}" alt="ig">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ asset('assets/ig2.png') }}" alt="ig">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ asset('assets/ig3.png') }}" alt="ig">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ asset('assets/ig4.png') }}" alt="ig">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="bg-white px-5 py-16 md:px-12 lg:px-24">
         <div class="flex flex-col">
             <h1 class="font-public font-bold text-textBlack text-xl lg:text-4xl text-center uppercase">Testimoni</h1>
             <div class="mt-10 lg:mt-14 mx-2 flex flex-col justify-center gap-5 md:flex-row">
                 <div class="border border-[#CCC] rounded-xl md:w-[540px]">
                     <img src="{{ asset('assets/testi1.png') }}" alt="testimoni1">
-                    <p class="font-public font-medium text-lg text-center mt-5">Zhico Daniel</p>
+                    <p class="font-public font-medium text-lg text-center mt-5">Zhico</p>
                     <p class="font-quick font-light text-center leading-5 mt-2 mb-6 px-5">"Bionev ini merupakan jawaban bagi mereka yang mencari alternatif yang lebih sehat dalam dunia vape. Rasa herbalnya benar-benar alami dan menyegarkan, serta memberikan pengalaman yang jauh lebih bersih dan lebih baik bagi tubuh saya. Saya sangat menghargai upaya untuk memberikan opsi vape yang lebih sehat, dan produk ini telah memenuhi semua ekspektasi saya"</p>
                 </div>
                 <div class="border border-[#CCC] rounded-xl md:w-[540px]">
                     <img src="{{ asset('assets/testi2.png') }}" alt="testimoni2">
-                    <p class="font-public font-medium text-lg text-center mt-5">Zhico Daniel</p>
+                    <p class="font-public font-medium text-lg text-center mt-5">Arkan</p>
                     <p class="font-quick font-light text-center leading-5 mt-2 mb-6 px-5">"Produk liquid vape ini benar-benar luar biasa! Rasa dan aroma yang dihasilkan sangat autentik, dan saya sangat senang dengan inovasi yang dibawa Bionev. Selain itu, kemasannya juga sangat praktis dan mudah digunakan. Ini adalah produk yang sangat memuaskan bagi para pecinta vaping seperti saya"</p>
                 </div>
             </div>
@@ -113,3 +155,18 @@
     </section>
 @endsection
 
+@section('js-script')
+<script type="module">
+    const swiper = new Swiper('.swiper', {
+        slidesPerView: 3,
+        centeredSlides: false,
+        spaceBetween: 30,
+    });
+
+    const swiperMobile = new Swiper('.swiperMobile', {
+        slidesPerView: 1,
+        centeredSlides: true,
+        spaceBetween: 30,
+    });
+</script> 
+@endsection

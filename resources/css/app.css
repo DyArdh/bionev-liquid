@@ -168,10 +168,21 @@ table.dataTable > thead > tr > td {
   
   }
 
-
 .section-image1{
     background-image: url("{{ asset('assets/bg section1.png') }}");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }

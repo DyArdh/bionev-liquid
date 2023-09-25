@@ -15,7 +15,7 @@
                 </div>
                 <div class="font-public">
                     <h2 class="font-semibold">Pesanan Masuk</h2>
-                    <p class="text-right text-lg">2</p>
+                    <p class="text-right text-lg">{{ $orderUnpaid }}</p>
                 </div>
             </div>
             <div class="flex items-center gap-16 bg-second text-white w-full px-5 py-3 rounded-lg">
@@ -24,7 +24,7 @@
                 </div>
                 <div class="font-public">
                     <h2 class="font-semibold">Produk Terjual</h2>
-                    <p class="text-right text-lg">2</p>
+                    <p class="text-right text-lg">{{ $orderPaid }}</p>
                 </div>
             </div>
             <div class="flex items-center gap-10 bg-second text-white w-full px-5 py-3 rounded-lg">
@@ -33,7 +33,7 @@
                 </div>
                 <div class="font-public">
                     <h2 class="font-semibold">Total Pendapatan</h2>
-                    <p class="text-right text-lg">Rp 1M</p>
+                    <p class="text-right text-lg">Rp {{ number_format($income, 0, ',', '.') }}</p>
                 </div>
             </div>
             <div class="flex items-center gap-24 bg-second text-white w-full px-5 py-3 rounded-lg">
@@ -42,7 +42,7 @@
                 </div>
                 <div class="font-public">
                     <h2 class="font-semibold">Total User</h2>
-                    <p class="text-right text-lg">Rp 1M</p>
+                    <p class="text-right text-lg">{{ $user }}</p>
                 </div>
             </div>
         </div>
@@ -64,6 +64,7 @@
 @section('js-script')
 <script type="module">
     $(document).ready(function() {
+        var orderData = @json($orderChartData);
         var chart = new Chart(document.querySelector('#sales'), {
             type: 'line',
             options: {
@@ -74,9 +75,9 @@
                 }
             },
             data: {
-                labels: labels,
+                labels: orderData.periods,
                 datasets: [{
-                    data: data,
+                    data: orderData.totals,
                     fill: false,
                     borderColor: 'rgb(75, 192, 192)',
                     tension: 0.1
@@ -84,65 +85,10 @@
             }
         });
 
-        var jsonData = @json($orderChartData);
-        console.log(jsonData)
-
-        // filter Date
-        let labels;
-        let data;
-
-        // $.ajax({
-        //     type: 'GET',
-        //     url: '/admin/orders/getOrdersByMonth?from=01-01-2023&to=31-12-2023',
-        //     success: function (data) {
-        //         labels = data.periods;
-        //         data = data.totals; 
-        //         createChart(labels, data) 
-        //     },
-        // });
-
-        function createChart(labels, data) {
-            var chart = new Chart(document.querySelector('#sales'), {
-                type: 'line',
-                options: {
-                    plugins: {
-                        legend: {
-                        display: false
-                        }
-                    }
-                },
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        data: data,
-                        fill: false,
-                        borderColor: 'rgb(75, 192, 192)',
-                        tension: 0.1
-                    }]
-                }
-            });
-
-            chart.update();
-        }
-
-        function updateChartData(newLabels, newData) {
-            chart.destroy();
-
-            createChart(newLabels, newData)
-        }
-
         $('#filter').click(function() {
             var from = $('#from').val();
             var to = $('#to').val();
-            $.ajax({
-                type: 'GET',
-                url: `/admin/orders/getOrdersByMonth?from=${from}&to=${to}`,
-                success: function (data) {
-                    labels = data.periods;
-                    data = data.totals
-                    createChart(labels, data);
-                },
-            });
+            window.location.href = `/admin?from=${from}&to=${to}`
         });  
     });
 </script>
