@@ -32,6 +32,9 @@ module.exports = {
             backgroundImage: {
                 login: "url('../../public/assets/login-page.png')",
                 textureHero: "url('../../public/assets/texture-hero.png')",
+                section1: "url('../../public/assets/bg section1.png')",
+                section2: "url('../../public/assets/bg section2.png')",
+                section3: "url('../../public/assets/bg section3.png')",
             },
             keyframes: {
                 rotate: {

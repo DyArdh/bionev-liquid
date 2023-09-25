@@ -93,3 +93,85 @@ table.dataTable > thead > tr > td {
     background-color: rgb(220, 220, 220);
     color: #505050;
 }
+
+.timeline{
+    width:800px;
+    background-color:white;
+    color:#fff;
+    padding:0px 10px;
+    
+  }
+  .timeline ul{
+    list-style-type:none;
+    border-left:2px solid #094a68;
+    padding:10px 5px;
+  }
+  .timeline ul li{
+    padding:20px 20px;
+    position:relative;
+    cursor:pointer;
+    transition:.5s;
+  }
+  .timeline ul li span{
+    display:inline-block;
+    background-color: #2576BB;
+    border-radius:25px;
+    padding:4px 12px;
+    font-size:15px;
+    text-align:center;
+  }
+  .timeline ul li .content h3{
+    color:#34ace0;
+    font-size:17px;
+    padding-top:5px;
+  }
+  .timeline ul li .content p{
+    padding:5px 0px 15px 0px;
+    font-size:15px;
+  }
+  .timeline ul li:before{
+    position:absolute;
+    content:'';
+    width:10px;
+    height:10px;
+    background-color:#34ace0;
+    border-radius:50%;
+    left:-11px;
+    top:28px;
+    transition:.5s;
+  }
+  .timeline ul li:hover{
+    background-color:#2576BB;
+    color: #fff;
+    
+  }
+  .timeline ul li:hover:before{
+    background-color:#0F0;
+    box-shadow:0px 0px 10px 2px #0F0;
+  }
+
+  .timeline ul li:hover .content p {
+    color: #fff;
+  }
+
+
+
+  @media (max-width:300px){
+    .timeline{
+      width:100%;
+      padding:30px 5px 30px 10px;
+    }
+    .timeline ul li .content h3{
+      color:#34ace0;
+      font-size:15px;
+    }
+  
+  }
+
+
+.section-image1{
+    background-image: url("{{ asset('assets/bg section1.png') }}");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
