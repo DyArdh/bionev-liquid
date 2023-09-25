@@ -11,8 +11,11 @@
                 <div class="border shadow-card rounded px-3 py-4 mb-3 md:mb-5">
                     <div class="flex items-center gap-3">
                         <p class="font-quick text-xs md:text-sm">{{ date('d M Y', strtotime($data->created_at)) }}</p>
-                        <span class="border border-button rounded-md text-button text-xs px-2 py-0.5 md:px-3 md:py-0.5">Selesai</span>
-                        {{-- <span class="border border-red-500 rounded-md text-red-500 text-xs px-2 py-0.5">Belum Dibayar</span> --}}
+                        @if ($data->status === 'paid')
+                            <span class="border border-button rounded-md text-button text-xs px-2 py-0.5 md:px-3 md:py-0.5">Selesai</span>
+                        @else
+                            <span class="border border-red-500 rounded-md text-red-500 text-xs px-2 py-0.5">Belum Dibayar</span>
+                        @endif
                     </div>
                     <div class="flex items-center gap-3 mt-2">
                         <img src="{{ asset('assets/product.png') }}" alt="product" class="w-10 rounded md:w-12">

@@ -30,11 +30,14 @@ Route::get('riwayat-pesanan', [PesananController::class, 'index'])->name('pesana
 Route::get('riwayat-pesanan/detail', [PesananController::class, 'detail'])->name('detail-pesanan');
 
 Route::get('/admin/orders', [OrderController::class, 'index'])->name('admin.orders.index');
+Route::put('/admin/orders/update', [OrderController::class, 'update'])->name('admin.orders.update');
 Route::get('/admin/users', [UserAdminController::class, 'index'])->name('admin.users.index');
+Route::get('/admin/getOrder', [OrderController::class, 'getOrder'])->name('admin.getOrder');
 
 Route::middleware(['auth'])->group(function() {
     Route::get('/profile', [UserController::class, 'profile'])->name('profile');
     Route::put('/profile/update', [UserController::class, 'updateProfile'])->name('updateProfile');
+    Route::put('/profile/changePassword', [UserController::class, 'changePassword'])->name('changePassword');
     Route::get('/logout', [UserController::class, 'logout'])->name('logout');
     Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
     Route::post('/checkout', [CheckoutController::class, 'storePayment'])->name('storeCheckout');

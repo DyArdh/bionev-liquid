@@ -28,7 +28,7 @@
         @yield('modal')
         <div class="flex h-screen bg-gray-50" :class="{ 'overflow-hidden': isSideMenuOpen }">
             <!-- Dekstop Sidebar -->
-            <aside class="z-20 hidden w-64 overflow-y-auto bg-gray-800 md:block flex-shrink-0">
+            <aside class="z-20 hidden w-52 overflow-y-auto bg-gray-800 md:block flex-shrink-0">
                 <div class="py-4 text-gray-500">
                     <a class="ml-6 text-lg font-bold text-gray-200" href="#">
                         Bionev Liquid
@@ -57,40 +57,14 @@
                         <li class="relative px-6 py-2 mt-2">
                             <span class="absolute inset-y-0 left-0 w-1 rounded-tr-lg rounded-br-lg @if (Request::url() === url('/admin/users')) {{ "bg-purple-600" }} @else {{ "bg-transparent" }} @endif" aria-hidden="true"></span>
                             <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 hover:text-purple-600" href="/admin/users">
-                                <svg
-                                    class="w-5 h-5"
-                                    aria-hidden="true"
-                                    fill="none"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                >
-                                    <path
-                                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                                    ></path>
-                                </svg>
+                                <svg class="w-5 h-5" aria-hidden="true" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="9" cy="9" r="4"/><path d="M16 19c0-3.314-3.134-6-7-6s-7 2.686-7 6m13-6a4 4 0 1 0-3-6.646"/><path d="M22 19c0-3.314-3.134-6-7-6c-.807 0-2.103-.293-3-1.235"/></g></svg>
                                 <span class="ml-4">User</span>
                             </a>
                         </li>
                         <li class="relative px-6 py-2 mt-2">
                             <span class="absolute inset-y-0 left-0 w-1 rounded-tr-lg rounded-br-lg @if (Request::url() === url('/admin/orders')) {{ "bg-purple-600" }} @else {{ "bg-transparent" }} @endif" aria-hidden="true"></span>
                             <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 hover:text-purple-600" href="/admin/orders">
-                                <svg
-                                    class="w-5 h-5"
-                                    aria-hidden="true"
-                                    fill="none"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                >
-                                    <path
-                                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                                    ></path>
-                                </svg>
+                                <svg class="w-5 h-5" aria-hidden="true" viewBox="0 0 2048 2048"><path fill="currentColor" d="M896 512v128H512V512h384zM512 896V768h384v128H512zm0 256v-128h256v128H512zM384 512v128H256V512h128zm0 256v128H256V768h128zm-128 384v-128h128v128H256zM128 128v1792h640v128H0V0h1115l549 549v219h-128V640h-512V128H128zm1024 91v293h293l-293-293zm640 805h256v1024H896V1024h256V896h128v128h384V896h128v128zm128 896v-512h-896v512h896zm0-640v-128h-896v128h896z"/></svg>
                                 <span class="ml-4">Pesanan</span>
                             </a>
                         </li>
@@ -162,21 +136,20 @@
                                 class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
                                 href="/admin"
                             >
-                                <svg
-                                    class="w-5 h-5"
-                                    aria-hidden="true"
-                                    fill="none"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                >
-                                    <path
-                                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                                    ></path>
-                                </svg>
-                                <span class="ml-4">Dashboard</span>
+                                <svg class="w-5 h-5" aria-hidden="true" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="9" cy="9" r="4"/><path d="M16 19c0-3.314-3.134-6-7-6s-7 2.686-7 6m13-6a4 4 0 1 0-3-6.646"/><path d="M22 19c0-3.314-3.134-6-7-6c-.807 0-2.103-.293-3-1.235"/></g></svg>
+                                <span class="ml-4">User</span>
+                            </a>
+                        </li>
+                        <li class="relative px-6 py-3">
+                            <span
+                                class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                                aria-hidden="true"
+                            ></span>
+                            <a
+                                class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
+                                href="/admin"
+                            >
+                                <svg class="w-5 h-5" aria-hidden="true" viewBox="0 0 2048 2048"><path fill="currentColor" d="M896 512v128H512V512h384zM512 896V768h384v128H512zm0 256v-128h256v128H512zM384 512v128H256V512h128zm0 256v128H256V768h128zm-128 384v-128h128v128H256zM128 128v1792h640v128H0V0h1115l549 549v219h-128V640h-512V128H128zm1024 91v293h293l-293-293zm640 805h256v1024H896V1024h256V896h128v128h384V896h128v128zm128 896v-512h-896v512h896zm0-640v-128h-896v128h896z"/></svg>
                             </a>
                         </li>
                     </ul>

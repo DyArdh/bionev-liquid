@@ -57,7 +57,7 @@
                 <a href="{{ route('checkout') }}" class="bg-button py-4 w-full rounded-md font-public font-semibold text-white text-center">
                     <button>Belanja Lagi</button>
                 </a>
-                <a href="" class="border-2 border-button py-4 w-full rounded-md font-public font-semibold text-center">
+                <a href="{{ route('pesanan') }}" class="border-2 border-button py-4 w-full rounded-md font-public font-semibold text-center">
                     <button>Riwayat Pesanan</button>
                 </a>
             </div>
